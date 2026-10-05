@@ -5,8 +5,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Check bash syntax
         run: |
           for script in scripts/*.sh; do
             [ -f "$script" ] && bash -n "$script"
           done
+
+      - name: Run shellcheck
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y shellcheck
+          shellcheck scripts/*.sh || true
+
+      - name: Run tests
+        run: |
+          if [ -f scripts/test-scripts.sh ]; then
+            bash scripts/test-scripts.sh
+          fi
