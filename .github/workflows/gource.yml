@@ -38,7 +38,7 @@ jobs:
 
       - name: Re-encode with ffmpeg
         run: |
-          ffmpeg -i gource.mp4 -c:v libx264 -preset slow -crf 18 \
+          ffmpeg -i gource/gource.mp4 -c:v libx264 -preset slow -crf 18 \
             -pix_fmt yuv420p -vf "scale=1920:1080" \
             -c:a aac -b:a 192k -movflags +faststart \
             github-automation-scripts_gource_1080p.mp4
