@@ -7,6 +7,15 @@ set -euo pipefail
 
 REPO="${2:-}"
 
+if [[ "${1:-}" == "--help" || "${1:-}" == "-h" ]]; then
+  echo "Usage: release-automation.sh <VERSION> [REPO]"
+  echo "Example: release-automation.sh v1.2.0"
+  echo ""
+  echo "Options:"
+  echo "  -h, --help  Show this help message"
+  exit 0
+fi
+
 if [[ -z "${1:-}" ]]; then
   echo "Usage: release-automation.sh <VERSION> [REPO]"
   echo "Example: release-automation.sh v1.2.0"
