@@ -1,5 +1,8 @@
 # GitHub Automation Scripts
 
+[![CI](https://github.com/itsdarklikehell/github-automation-scripts/actions/workflows/ci.yml/badge.svg)](https://github.com/itsdarklikehell/github-automation-scripts/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/itsdarklikehell/github-automation-scripts)](LICENSE)
+
 Herbruikbare scripts voor GitHub automatisering.
 
 ## Features
@@ -39,45 +42,25 @@ bash scripts/pr-review.sh 123 owner/repo
 ### Issue Triage
 
 ```bash
-bash scripts/issue-triage.sh [REPO]
-```
-
-Voorbeeld:
-```bash
-bash scripts/issue-triage.sh
-bash scripts/issue-triage.sh owner/repo
+bash scripts/issue-triage.sh <ISSUE_NUMBER> [REPO]
 ```
 
 ### Release Automation
 
 ```bash
-bash scripts/release-automation.sh <VERSION> [REPO]
+bash scripts/release-automation.sh <REPO> <TAG>
 ```
 
-Voorbeeld:
-```bash
-bash scripts/release-automation.sh v1.2.0
-bash scripts/release-automation.sh v1.2.0 owner/repo
-```
-
-### Tests
+### Security Scanning
 
 ```bash
-bash scripts/test-scripts.sh
+bash scripts/security-scan.sh [REPO]
 ```
 
-## :film_projector: Development visualization
+## Bijdragen
 
-Bekijk de [Gource development video](https://github.com/itsdarklikehell/github-automation-scripts/releases) voor een visuele tijdlijn van de projectgeschiedenis.
-
-Om de video lokaal te genereren:
-```bash
-gource -1920x1080 --auto-skip-seconds 1 -o gource.ppm
-ffmpeg -y -r 60 -i gource.ppm -c:v libx264 -preset slow -crf 18 -pix_fmt yuv420p gource.mp4
-```
-
-De GitHub Actions workflow (`.github/workflows/gource.yml`) genereert de video automatisch bij elke release.
+Zie [CONTRIBUTING.md](CONTRIBUTING.md) voor richtlijnen.
 
 ## Licentie
 
-MIT
+MIT — zie [LICENSE](LICENSE) voor details.
